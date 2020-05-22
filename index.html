@@ -27,58 +27,46 @@
                 <img id='mainPicture' class="img-thumbnail img-main" src="https://cdn.pixabay.com/photo/2015/12/06/20/35/photographer-1080008_960_720.jpg" />
             </p>
             <hr class="my-4">
-            <div class="row">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://i.imgflip.com/205fc0.jpg" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">Halloween Witness</h5>
-                        </div>
-                        <div class="card-footer">
-                            <button onClick="setPicture('https://i.imgflip.com/205fc0.jpg')" class="btn btn-primary">Show</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://i.ytimg.com/vi/UKeI9bdB6Qg/maxresdefault.jpg" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">Confused-Happy Cat</h5>
-                        </div>
-                        <div class="card-footer">
-                            <button onClick="setPicture('https://i.ytimg.com/vi/UKeI9bdB6Qg/maxresdefault.jpg')" class="btn btn-primary">Show</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://cdn.pixabay.com/photo/2015/12/06/20/35/photographer-1080008_960_720.jpg" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">Smile You're on Camera</h5>
-                        </div>
-                        <div class="card-footer">
-                            <button onClick="setPicture('https://cdn.pixabay.com/photo/2015/12/06/20/35/photographer-1080008_960_720.jpg')" class="btn btn-primary">Show</button>
-                        </div>
-                    </div>        
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://static.boredpanda.com/blog/wp-content/uploads/2020/02/funny-hilarious-dog-snapchats-coverimage.jpg" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">Shocked Dog</h5>
-                        </div>
-                        <div class="card-footer">
-                            <button onClick="setPicture('https://static.boredpanda.com/blog/wp-content/uploads/2020/02/funny-hilarious-dog-snapchats-coverimage.jpg')" 
-                                href="#" class="btn btn-primary">Show</button>
-                        </div>
-                    </div>  
-                </div>
-
+            <div id='thumbnailList' class="row">
             </div>
           </div>
     </div>
     
     <script>
+        var thumbnailSet = [
+            'https://i.imgflip.com/205fc0.jpg',
+            'https://i.ytimg.com/vi/UKeI9bdB6Qg/maxresdefault.jpg',
+            'https://cdn.pixabay.com/photo/2015/12/06/20/35/photographer-1080008_960_720.jpg',
+            'https://static.boredpanda.com/blog/wp-content/uploads/2020/02/funny-hilarious-dog-snapchats-coverimage.jpg'
+        ];
+        var titleSet = [
+            'Halloween Witness',
+            'Confused-Happy Cat',
+            'Smile You\'re on Camera',
+            'Shocked Dog'
+        ]
+
+        // loop through our thumbnails andd them to our '#thumbnailList'
+        for( var idx=0; idx<thumbnailSet.length; idx++ ){
+            var url = thumbnailSet[idx];
+            var title = titleSet[idx];
+            document.querySelector('#thumbnailList').innerHTML += 
+            `
+            <div class="col">
+                    <div class="card h-100">
+                        <img src="${url}" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title">${title}</h5>
+                        </div>
+                        <div class="card-footer">
+                            <button onClick="setPicture('${url}')" 
+                                href="#" class="btn btn-primary">Show</button>
+                        </div>
+                    </div>  
+                </div>
+            `;
+        }
+
         function setPicture( url ){
             console.log( `setting picture to: ${url}` );
             document.querySelector('#mainPicture').src = url;
