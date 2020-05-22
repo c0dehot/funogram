@@ -1,0 +1,19 @@
+Single page app:
+FunoGram
+
+[                                        ]
+[ Selected Picture                       ]
+[                                        ]
+
+[ Thumb1 ] [ Thumb2 ] [ Thumb3 ] [Thumb4 ]
+   \clickable
+      Clicking will change the main picture 
+      to the thumnbnail picture.
+
+
+# Variables
+- list of thumbnails
+
+# Functions
+- clicking on each thumbnail will call "setPicture()"
+  setPicture: switch 'Selected Picture' to thumbnail source
