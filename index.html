@@ -34,25 +34,25 @@
     
     <script>
         var thumbnailSet = [
-            'https://i.imgflip.com/205fc0.jpg',
-            'https://i.ytimg.com/vi/UKeI9bdB6Qg/maxresdefault.jpg',
-            'https://cdn.pixabay.com/photo/2015/12/06/20/35/photographer-1080008_960_720.jpg',
-            'https://static.boredpanda.com/blog/wp-content/uploads/2020/02/funny-hilarious-dog-snapchats-coverimage.jpg'
+            { url: 'https://i.imgflip.com/205fc0.jpg', 
+              title: 'Halloween Witness' },
+            { url: 'https://i.ytimg.com/vi/UKeI9bdB6Qg/maxresdefault.jpg',
+              title: 'Confused-Happy Cat' },
+            { url: 'https://cdn.pixabay.com/photo/2015/12/06/20/35/photographer-1080008_960_720.jpg',
+              title: 'Smile You\'re on Camera' },
+            { url: 'https://static.boredpanda.com/blog/wp-content/uploads/2020/02/funny-hilarious-dog-snapchats-coverimage.jpg',
+              title: 'Shocked Dog' },
+            { url: 'https://weneedfun.com/wp-content/uploads/2016/07/Most-Beautiful-Sunset-Pictures-14.jpg',
+              title: 'Sunset' }
         ];
-        var titleSet = [
-            'Halloween Witness',
-            'Confused-Happy Cat',
-            'Smile You\'re on Camera',
-            'Shocked Dog'
-        ]
 
         // loop through our thumbnails andd them to our '#thumbnailList'
         for( var idx=0; idx<thumbnailSet.length; idx++ ){
-            var url = thumbnailSet[idx];
-            var title = titleSet[idx];
+            var url = thumbnailSet[idx].url;
+            var title = thumbnailSet[idx].title;
             document.querySelector('#thumbnailList').innerHTML += 
             `
-            <div class="col">
+                <div class="col">
                     <div class="card h-100">
                         <img src="${url}" class="card-img-top">
                         <div class="card-body">
